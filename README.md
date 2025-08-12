@@ -13,15 +13,6 @@ Routes:
 - `/` product list
 - `/product/:id` product detail (lazy)
 
-Known intentional issues for interviews:
-
-- Price formatting inconsistencies across list/detail/cart
-- Cart add race when clicking "Add to Cart" fast
-- Cart total can be off or fail to update on removals
-- Product service mutates arrays in place and leaks an effect
-- Route config uses `loadChildren` incorrectly for a standalone component
-- Mobile CSS has a broken grid minmax leading to overlap
-- Mixed state management (signals + BehaviorSubject) and some redundant code
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
 
