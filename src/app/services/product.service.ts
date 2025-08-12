@@ -2,8 +2,7 @@ import { Injectable, Signal, computed, effect, signal } from '@angular/core';
 import { Product } from '../models/product';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 @Injectable({ providedIn: 'root' })
-export class ProductService {
-  // Signal-based state
+export class ProductService {  
   private readonly productsSignal = signal<Product[]>([
     {
       id: 'p-1',
@@ -34,15 +33,13 @@ export class ProductService {
     const latest = this.productsSignal();
     this.productsSubject.next(latest);
   });
-
-  // Derived signal (computed) for count
+  
   readonly productCount: Signal<number> = computed(() => this.productsSignal().length);
 
   getProductsSignal(): Signal<Product[]> {
     return this.productsSignal.asReadonly();
   }
-
-  // Inconsistent API returning Observable too
+  
   getProducts$(): Observable<Product[]> {
     return this.productsSubject.asObservable();
   }
